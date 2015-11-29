@@ -1,2 +1,2 @@
-# fifx
+# FIFX
 Fifa Tournament Managing Tool
