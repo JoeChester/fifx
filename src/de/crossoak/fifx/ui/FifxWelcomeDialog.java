@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,7 +16,7 @@ import javax.swing.JPanel;
 
 import de.crossoak.fifx.R;
 
-public class FifxWelcomeDialog extends JFrame implements ActionListener{
+public class FifxWelcomeDialog extends CenteredJFrame implements ActionListener{
 	
 	BufferedImage icon;
 	JLabel banner;
@@ -47,18 +48,12 @@ public class FifxWelcomeDialog extends JFrame implements ActionListener{
 		this.add(buttonPanel, BorderLayout.CENTER);
 		
 		this.add(this.banner, BorderLayout.NORTH);
-		this.setTitle("Fifx Tournament Manager v0.1");
-		this.setSize(500, 300);
+		this.setTitle(R.FIFX_TITLE);
+		this.setSize(500, 285);
 		this.setResizable(false);
 		this.centerLocation();
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
-	}
-	
-	private void centerLocation() {
-		this.setLocationRelativeTo(null);
-		int x = this.getLocation().x;
-		int y = this.getLocation().y;
-		this.setLocation(x - (x / 4), (y - (y / 4)));
 	}
 	
 	@Override
@@ -77,7 +72,17 @@ public class FifxWelcomeDialog extends JFrame implements ActionListener{
             int returnVal = fc.showSaveDialog(FifxWelcomeDialog.this);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fc.getSelectedFile();
-                System.err.println(file.getAbsolutePath());
+                String path = file.getAbsolutePath() + ".fifx";
+               	File newfile = new File(path);
+               	try {
+					newfile.createNewFile();
+					this.ctx.setTournamentFile(newfile);
+					new FifxTournamentWizard(this.ctx);
+					this.setVisible(false);
+					this.dispose();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
             } else {
                 System.out.println("Save command cancelled by user.");
             }

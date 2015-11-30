@@ -17,7 +17,13 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import de.crossoak.fifx.model.Tournament;
+
 public class Fifx{
+	
+	private File tournamentFile;
+	private Tournament tournament;
+	
 	public static void main(String[] args) {
 		 SwingUtilities.invokeLater(new Runnable() {
 	            public void run() {
@@ -32,7 +38,33 @@ public class Fifx{
 	            }
 	        });
 		}
+	
+	
 	    
+	public File getTournamentFile() {
+		return tournamentFile;
+	}
+
+
+
+	public void setTournamentFile(File tournamentFile) {
+		this.tournamentFile = tournamentFile;
+	}
+
+
+
+	public Tournament getTournament() {
+		return tournament;
+	}
+
+
+
+	public void setTournament(Tournament tournament) {
+		this.tournament = tournament;
+	}
+
+
+
 	public static void setSystemLookAndFeel() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException{
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	}
