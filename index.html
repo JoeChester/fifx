@@ -58,7 +58,7 @@
             margin-top: 20px;
         }
 
-        .player_names {
+        .tab_content {
             font-size: 1.3rem;
             text-align: center;
         }
@@ -73,6 +73,14 @@
 
         .new_turn_button{
             margin-top: 20px;
+            padding: 15px;
+            font-size: 2rem;
+            background-color: #222;
+            color: #0FF;
+        }
+
+        .load_turn_button{
+            margin-bottom: 20px;
             padding: 15px;
             font-size: 2rem;
             background-color: #222;
@@ -95,7 +103,9 @@
 
 
     <section id="content1">
-        <div class="player_names">
+        <div class="tab_content">
+            <button class="load_turn_button" onclick="load_turn()">Turnier Laden</button><br>
+
             <div class="player_name_input">
                 Spieler 01:
                 <input type="text" id="player_name_1" class="player_input" />
@@ -129,12 +139,14 @@
                 <input type="text" id="player_name_10" class="player_input" />
             </div>
 
-            <button class="new_turn_button">Neues Turnier</button>
+            <button class="new_turn_button" onclick="new_turn()">Neues Turnier</button>
         </div>
     </section>
 
     <section id="content2">
-        Games Content
+        <div class="tab_content">
+            <div
+        </div>
     </section>
 
     <section id="content3">
