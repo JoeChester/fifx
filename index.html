@@ -71,7 +71,7 @@
             font-size: 1rem;
         }
 
-        .new_turn_button{
+        .new_turn_button {
             margin-top: 20px;
             padding: 15px;
             font-size: 2rem;
@@ -79,12 +79,48 @@
             color: #0FF;
         }
 
-        .load_turn_button{
+        .load_turn_button {
             margin-bottom: 20px;
             padding: 15px;
             font-size: 2rem;
             background-color: #222;
             color: #0FF;
+        }
+
+        .left_half {
+            width: 49%;
+            text-align: right;
+        }
+
+        .right_half {
+            width: 30%;
+            text-align: left;
+        }
+
+        input[type="number"] {
+            width: 3rem;
+        }
+
+        table{
+            margin: auto;
+            font-size: 1.3rem;
+        }
+
+        .save-button{
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .winner{
+            background-color: #0F0;
+        }
+
+        .loser{
+            background-color: #F00;
+        }
+
+        .draw{
+            background-color: #FF0;
         }
     </style>
 </head>
@@ -104,14 +140,15 @@
 
     <section id="content1">
         <div class="tab_content">
-            <button class="load_turn_button" onclick="load_turn()">Turnier Laden</button><br>
+            <button class="load_turn_button" onclick="load_turn()">Turnier Laden</button>
+            <br>
 
             <div class="player_name_input">
                 Spieler 01:
                 <input type="text" id="player_name_1" class="player_input" />
             </div>
             <div class="player_name_input">
-                    Spieler 02:
+                Spieler 02:
                 <input type="text" id="player_name_2" class="player_input" />
             </div>
             <div class="player_name_input">Spieler 03:
@@ -145,7 +182,28 @@
 
     <section id="content2">
         <div class="tab_content">
-            <div
+            <table>
+                <tr id="game1">
+                    <td id="game1_p1">
+                        Jonas
+                    </td>
+                    <td>
+                        <input type="number" maxlength="2" id="game1_p1_score" class="player_input" />
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                            <input type="number" maxlength="2" id="game1_p2_score" class="player_input" />
+                    </td>
+                    <td id="game1_p2">
+                        Franzi
+                    </td>
+                    <td>
+                        <button class="save-button" onclick="save_game(1)">Ok</button>
+                    </td>
+                </tr>
+            </table>
         </div>
     </section>
 
